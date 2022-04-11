@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<style>
+    form {
+        font-family: 'Open Sans';
+        background-color: #FFFAF0;
+    }
+</style>
+
+<form action="SaveData">
+    <label>Employee Id</label>
+    @Html.DropDownList("employeeList", null, "select", htmlAttributes: new { @Name= "employee_id",@class="form-control" });
+
+    <label>Salary paid</label>
+    <input type="text" name="salary_paid" class="form-control" />
+
+    <label>Paid date</label>
+    <input type="date" name="paid_date" class="form-control" />
+
+    <br /><br />
+    <input type="submit" name="submit" class="btn btn-success" value="Save" />
+</form>
+

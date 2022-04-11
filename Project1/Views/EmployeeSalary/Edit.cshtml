@@ -1,0 +1,29 @@
+﻿@model Project1.Models.employee_salary_details
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<style>
+    form {
+        font-family: 'Open Sans';
+        background-color: #FFFAF0;
+    }
+</style>
+@using (Html.BeginForm("UpdateData", "EmployeeSalary"))
+{
+
+    <label>ID</label>
+    <input type="text" name="id" value="@Model.id" class="form-control" />
+    <label>Email</label>
+    <input type="email" name="email" class="form-control" />
+    <label>Number</label>
+    <input type="number" name="number" class="form-control" />
+    <br />
+    <br />
+    <input type="submit" name="submit" class="btn btn-success" value="Save" />
+
+}
+
+

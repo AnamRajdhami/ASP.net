@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Project1.Models.employee_salary_details>
+@{
+    ViewBag.Title = "Index1";
+}
+
+<h2>Index1</h2>
+@using (Html.BeginForm("Search", null))
+{
+    <label>search</label>
+    <input type="date" name="paid_date" />
+    <input type="date" name="paid_date2" />
+    <input type="submit" value="Search" />
+}
+<p>
+    @Html.ActionLink("create new", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>SN</th>
+        <th>Employee id</th>
+        <th>Salary Amount</th>
+        <th>Paid Date</th>
+        <th>Action</th>
+    </tr>
+
+    @{ int sn = 0;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@(++sn))</td>
+            <td>@item.dbo_employee.FirstName</td>
+            <td>@item.salary_paid</td>
+            <td>@item.paid_date</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id })|
+                @Html.ActionLink("Details", "Details", new { id = item.id })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })|
+            </td>
+        </tr>
+    }
+    <tr>
+
+        <td></td>
+        <td>Total</td>
+        <td colspan="2">@(Model.Sum(x=>x.salary_paid))</td>
+    </tr>
+</table>
